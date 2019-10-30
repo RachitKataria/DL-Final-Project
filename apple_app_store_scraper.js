@@ -12,6 +12,12 @@ var categories = [
 	'SPORTS', 'TRAVEL', 'UTILITIES', 'WEATHER'
 ]
 
+// Create icons dir if doesn't exist
+var base_dir = './icons/';
+if (!fs.existsSync(base_dir)){
+    fs.mkdirSync(base_dir);
+}
+
 categories.forEach(function(category) {
 	// Check if directory exists else create it
 	var dir = './icons/' + category + '/';
@@ -34,7 +40,7 @@ categories.forEach(function(category) {
 	store.list({
 	  collection: store.collection.TOP_FREE_IOS,
 	  category: store.category[category],
-	  num: 200
+	  num: 10
 	})
 	.then(function(value) {
 		var app_arr = []
